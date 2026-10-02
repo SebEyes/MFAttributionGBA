@@ -20,7 +20,7 @@ A table mapping MF codes to taxonomy. It must include these exact column names:
 | `order` | Taxonomic order |
 | `class` | Taxonomic class |
 | `phylum` | Taxonomic phylum |
-| `abpcode` | Taxonomic code used by the app |
+| ` . . . ` | Taxonomic information following DWC Archive standards |
 
 For reliable results, ensure MF codes and taxonomy values are populated consistently.
 
