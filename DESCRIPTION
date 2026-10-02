@@ -1,0 +1,21 @@
+Package: MFattributionGBA
+Type: Package
+Title: Morphospecies (MF) Taxonomy Attribution Shiny App
+Version: 0.1.0
+Author: Sébastien Lhoumeau
+Maintainer: Sébastien Lhoumeau <seb.lhoumeau@gmail.com>
+Description: Interactive Shiny app to attribute taxonomy to morphospecies (MF)
+    codes using a reference database and a synonym table, with csv/xlsx I/O.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    shiny,
+    shinyFeedback,
+    DT,
+    readxl,
+    writexl,
+    dplyr,
+    stringr,
+    tools
+Config/roxygen2/version: 8.1.0
