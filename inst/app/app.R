@@ -23,7 +23,7 @@ read_any <- function(filepath, filename, sep = ";") {
       error = function(e) NULL
     )
   } else if (ext %in% c("xlsx", "xls")) {
-    df <- tryCatch(as.data.frame(readxl::read_excel(filepath)),
+    df <- tryCatch(as.data.frame(readxl::read_excel(filepath, col_types = "text")),
                    error = function(e) NULL)
   } else {
     df <- NULL
