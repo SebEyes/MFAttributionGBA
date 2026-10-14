@@ -271,7 +271,9 @@ server <- function(input, output, session) {
   ## -----------------------------------------------------------
   ## Run computation
   ## -----------------------------------------------------------
-  result <- eventReactive(input$run, {
+  result <- reactiveVal()
+
+  observeEvent(input$run, {
     req(wdb(), mfdb(), syn(), input$col_MF)
     
     res <- tryCatch({
@@ -287,13 +289,11 @@ server <- function(input, output, session) {
                        type = "error", duration = NULL)
       NULL
     })
-    
     if (!is.null(res)) {
-      showNotification("Attribution completed successfully.", type = "message")
+      result(res)  # Store in reactiveVal
       updateTabsetPanel(session, "main_tabs", selected = "Result")
+      showNotification("Attribution completed successfully.", type = "message")
     }
-    
-    res
   })
   
   ## -----------------------------------------------------------
