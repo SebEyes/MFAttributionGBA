@@ -219,7 +219,7 @@ server <- function(input, output, session) {
     df <- read_any(input$mfdb_file$datapath, input$mfdb_file$name, input$mfdb_sep)
     validate(need(!is.null(df), "Could not read MF reference database. Check file format/separator."))
     
-    req_cols <- c("MF", "order", "class", "phylum", "abpcode")
+    req_cols <- c("MF", "order", "class", "phylum", "scientificName")
     missing <- setdiff(req_cols, names(df))
     validate(need(
       length(missing) == 0,
