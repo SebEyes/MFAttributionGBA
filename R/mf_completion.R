@@ -7,9 +7,8 @@
 #'
 #' @param database A data frame containing the working data.
 #' @param col_MF Name of the column in `database` containing MF codes.
-#' @param MF_DB MF taxonomy reference data frame. It must include `MF`,
-#'   `taxonomic_order`, and `class` columns (and compatible taxonomy fields,
-#'   including `phylum` and `abpcode`).
+#' @param MF_DB MF taxonomy reference data frame. It must include at least `MF`,
+#'   `taxonomic_order`, and `class` columns.
 #' @param MF_syn Synonym data frame with at least two columns. The first
 #'   column contains the old MF codes and the second the corresponding codes
 #'   in `MF_DB$MF`.
@@ -18,7 +17,7 @@
 #' @return A data frame with taxonomy columns added to the working database.
 #' @export
 MF_completion <- function(database, col_MF, MF_DB, MF_syn, npi_code = "NPI") {
-  required_reference <- c("MF", "taxonomic_order", "class", "phylum", "abpcode")
+  required_reference <- c("MF", "taxonomic_order", "class", "phylum")
   if (!is.data.frame(database)) stop("`database` must be a data frame.", call. = FALSE)
   if (length(col_MF) != 1L || !is.character(col_MF) || !col_MF %in% names(database)) {
     stop("`col_MF` must name a column in `database`.", call. = FALSE)
