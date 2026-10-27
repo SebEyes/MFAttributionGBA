@@ -44,9 +44,12 @@ A table with **at least two columns**. Column names are not important; column po
 Install the package from GitHub and launch the app from R:
 
 ```r
-install.packages("remotes")
-remotes::install_github("SebEyes/MFAttributionGBA")
-MFAttributionGBA::run_mf_app()
+if (!requireNamespace("MFAttributionGBA", quietly = TRUE)){
+    if (!requireNamespace("remotes", quietly = TRUE)){
+        install.packages("remotes")
+    }
+    remotes::install_github("SebEyes/MFAttributionGBA")
+}
 ```
 
 ## Output
